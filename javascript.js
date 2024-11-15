@@ -4,6 +4,12 @@ let libraryId = 0
 let form = document.getElementById("myForm")
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+    title = form.querySelector("#title").value
+    author = form.querySelector("#author").value
+    pages = form.querySelector("#pages").value
+    readStatus = form.querySelector("#readStatus").checked
+    addBookToLibrary(new Book(title,author,pages,readStatus)) // fix it is always true right now? something wrong with readstatus quary seledtor
+    renderBooks()
 })
 
 function Book(title,author,pageCount,readStatus)
@@ -31,6 +37,11 @@ function addBookToLibrary(book)
     book.id = libraryId;
     libraryId += 1;
     library.push(book)
+}
+
+function resetForm()
+{
+    console.log(new FormData(form))
 }
 
 addBookToLibrary(newbook)

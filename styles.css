@@ -54,11 +54,20 @@ body{
     width: 100%;
 }
 
+
+
 form{
     display: flex;
     flex-direction: column;
+    padding: 20px;
+    background-color: rgb(241, 241, 241);
+    gap: 5px;
+}
+
+fieldset{
+    background-color: rgb(241, 241, 241);
+    
 }
 
 .form-card{
-    background-color: rgb(241, 241, 241);
 }
