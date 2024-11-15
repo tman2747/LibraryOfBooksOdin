@@ -56,19 +56,31 @@ function createBook(bookInfo)
     let bookcard = document.createElement("div")
     bookcard.className = "card"
     bookcard.id = bookInfo.id
+    let topitems = document.createElement("div")
+    topitems.className="top-items"
     let title = document.createElement("div")
     title.innerHTML=`Title: ${bookInfo.title}`
     title.className = 'card-title'
     let author = document.createElement("div")
     author.innerHTML=`Author: ${bookInfo.author}`
+    author.className = 'card-author'
     let pageCount = document.createElement("div")
     pageCount.innerHTML=`Page Count: ${bookInfo.pageCount}`
+    pageCount.className = 'card-page-count'
     let readStatus = document.createElement("div")
     readStatus.innerHTML=`Read status: ${bookInfo.readStatus}`
-    bookcard.appendChild(title)
-    bookcard.appendChild(author)
-    bookcard.appendChild(pageCount)
-    bookcard.appendChild(readStatus)
+    readStatus.className = "card-read-status"
+    topitems.appendChild(title)
+    topitems.appendChild(author)
+    topitems.appendChild(pageCount)
+    topitems.appendChild(readStatus)
+    bookcard.appendChild(topitems)
+    let removeButton = document.createElement("button")
+    removeButton.innerHTML = "Remove"
+    removeButton.addEventListener("click", ()=>{
+        deleteBook(bookInfo.id)
+    })
+    bookcard.appendChild(removeButton)
     return bookcard
 }
 
@@ -82,6 +94,7 @@ function deleteBook(id)
     }
     library.splice(index,1)
     console.log(index)
+    renderBooks()
 }
 
 function renderBooks()
