@@ -24,6 +24,11 @@ function Book(title,author,pageCount,readStatus)
     {
         console.log(`Title: ${this.title}\nAuthor: ${this.author}\nPage Count: ${this.pageCount}\nRead Status: ${this.readStatus} `)
     }
+
+    this.toggleReadStatus = function()
+    {
+        this.readStatus = !this.readStatus;
+    }
 }
 
 let newbook = new Book("1984", "Winsten", 400, true)
@@ -80,7 +85,19 @@ function createBook(bookInfo)
     removeButton.addEventListener("click", ()=>{
         deleteBook(bookInfo.id)
     })
+
+    
     bookcard.appendChild(removeButton)
+
+    let toggleReadStatus = document.createElement("button")
+    toggleReadStatus.innerHTML = "Read / Unread "
+    toggleReadStatus.addEventListener("click", ()=>{
+        bookInfo.toggleReadStatus()
+        renderBooks()
+    })
+
+    
+    bookcard.appendChild(toggleReadStatus)
     return bookcard
 }
 
