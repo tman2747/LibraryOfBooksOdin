@@ -8,8 +8,9 @@ form.addEventListener("submit", (e) => {
     author = form.querySelector("#author").value
     pages = form.querySelector("#pages").value
     readStatus = form.querySelector("#readStatus").checked
-    addBookToLibrary(new Book(title,author,pages,readStatus)) // fix it is always true right now? something wrong with readstatus quary seledtor
+    addBookToLibrary(new Book(title,author,pages,readStatus))
     renderBooks()
+    resetForm()
 })
 
 function Book(title,author,pageCount,readStatus)
@@ -32,7 +33,7 @@ function Book(title,author,pageCount,readStatus)
 }
 
 let newbook = new Book("1984", "Winsten", 400, true)
-let newbook1 = new Book("asdfasdf", "Winsten", 400, true)
+let newbook1 = new Book("The Hitchhiker’s Guide to the Galaxy", "Douglas Adams", 400, true)
 let newbook2 = new Book("sssss", "Winsten", 400, true)
 let newbook3 = new Book("ddddd", "Winsten", 400, true)
 let newbook4 = new Book("ffffff", "Winsten", 400, false)
@@ -46,7 +47,10 @@ function addBookToLibrary(book)
 
 function resetForm()
 {
-    console.log(new FormData(form))
+    form.querySelector("#title").value = ""
+    form.querySelector("#author").value = ""
+    form.querySelector("#pages").value = ""
+    form.querySelector("#readStatus").checked = false
 }
 
 addBookToLibrary(newbook)
@@ -80,6 +84,8 @@ function createBook(bookInfo)
     topitems.appendChild(pageCount)
     topitems.appendChild(readStatus)
     bookcard.appendChild(topitems)
+    let buttondiv = document.createElement("div")
+    buttondiv.className = "card-buttons"
     let removeButton = document.createElement("button")
     removeButton.innerHTML = "Remove"
     removeButton.addEventListener("click", ()=>{
@@ -87,7 +93,7 @@ function createBook(bookInfo)
     })
 
     
-    bookcard.appendChild(removeButton)
+
 
     let toggleReadStatus = document.createElement("button")
     toggleReadStatus.innerHTML = "Read / Unread "
@@ -97,7 +103,9 @@ function createBook(bookInfo)
     })
 
     
-    bookcard.appendChild(toggleReadStatus)
+    buttondiv.appendChild(toggleReadStatus)    
+    buttondiv.appendChild(removeButton)
+    bookcard.appendChild(buttondiv)
     return bookcard
 }
 
