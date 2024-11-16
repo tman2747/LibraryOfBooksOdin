@@ -32,11 +32,10 @@ function Book(title,author,pageCount,readStatus)
     }
 }
 
-let newbook = new Book("1984", "Winsten", 400, true)
+let newbook = new Book("1984", "George Orwell", 300, true)
 let newbook1 = new Book("The Hitchhiker’s Guide to the Galaxy", "Douglas Adams", 400, true)
-let newbook2 = new Book("sssss", "Winsten", 400, true)
-let newbook3 = new Book("ddddd", "Winsten", 400, true)
-let newbook4 = new Book("ffffff", "Winsten", 400, false)
+let newbook2 = new Book("Consider Phlebas", "Iain Banks", 250, true)
+
 
 function addBookToLibrary(book)
 {
@@ -56,8 +55,6 @@ function resetForm()
 addBookToLibrary(newbook)
 addBookToLibrary(newbook1)
 addBookToLibrary(newbook2)
-addBookToLibrary(newbook3)
-addBookToLibrary(newbook4)
 
 function createBook(bookInfo)
 {
