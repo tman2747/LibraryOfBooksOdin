@@ -5,7 +5,7 @@
     color: #2A3663;
 }
 
-body{
+body {
     min-height: 100vh;
     background-color: #FAF6E3;
 }
@@ -28,7 +28,7 @@ body{
     width: 100%;
 }
 
-.card-container{
+.card-container {
     grid-area: 1/2/2/3;
     display: flex;
     gap: 30px;
@@ -37,7 +37,7 @@ body{
     padding: 10px;
 }
 
-.card{
+.card {
     background-color: #D8DBBD;
     justify-content: center;
     align-items: center;
@@ -54,23 +54,23 @@ body{
     align-items: flex-start;
 }
 
-.card-title{
+.card-title {
     font-weight: bold;
 }
 
-.form-container{
+.form-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.form-container input[type="text"], input[type="number"]{
+.form-container input[type="text"],
+input[type="number"] {
     width: 100%;
 }
 
 
-
-form{
+form {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -78,23 +78,22 @@ form{
     gap: 5px;
 }
 
-fieldset{
+fieldset {
     background-color: rgb(241, 241, 241);
-    
+
 }
 
-.form-card{
-}
+.form-card {}
 
-.card-read-status{
+.card-read-status {
     margin-bottom: auto;
 }
 
-.card button{
+.card button {
     align-self: flex-end;
 }
 
-.card-buttons{
+.card-buttons {
     display: flex;
     gap: 10px;
     margin-left: auto;
