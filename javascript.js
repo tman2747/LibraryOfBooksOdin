@@ -1,18 +1,3 @@
-
-
-let form = document.getElementById("myForm")
-form.addEventListener("submit", (e) =>
-{
-    e.preventDefault();
-    title = form.querySelector("#title").value
-    author = form.querySelector("#author").value
-    pages = form.querySelector("#pages").value
-    readStatus = form.querySelector("#readStatus").checked
-    addBookToLibrary(new Book(title, author, pages, readStatus))
-    renderBooks()
-    resetForm()
-})
-
 class Book
 {
     constructor(title, author, pageCount, readStatus)
@@ -58,7 +43,7 @@ class library
     }
     deleteBook(id)
     {
-        index = this.library.findIndex(book => book.id === id)
+        let index = this.library.findIndex(book => book.id === id)
         if (index == -1)
         {
             console.log("You tried deleting a id that doesnt exisit check book indexing. this should not happpen")
@@ -66,7 +51,7 @@ class library
         }
         this.library.splice(index, 1)
         console.log(index)
-        renderBooks()
+        this.renderBooks()
     }
     createBook(bookInfo)
     {
@@ -99,7 +84,7 @@ class library
         removeButton.innerHTML = "Remove"
         removeButton.addEventListener("click", () =>
         {
-            deleteBook(bookInfo.id)
+            this.deleteBook(bookInfo.id)
         })
 
 
@@ -110,7 +95,7 @@ class library
         toggleReadStatus.addEventListener("click", () =>
         {
             bookInfo.toggleReadStatus()
-            renderBooks()
+            this.renderBooks()
         })
 
 
@@ -142,5 +127,19 @@ console.log(newbook2.title)
 mylibrary.addBookToLibrary(newbook)
 mylibrary.addBookToLibrary(newbook1)
 mylibrary.addBookToLibrary(newbook2)
+
+
+let form = document.getElementById("myForm")
+form.addEventListener("submit", (e) =>
+{
+    e.preventDefault();
+    title = form.querySelector("#title").value
+    author = form.querySelector("#author").value
+    pages = form.querySelector("#pages").value
+    readStatus = form.querySelector("#readStatus").checked
+    mylibrary.addBookToLibrary(new Book(title, author, pages, readStatus))
+    mylibrary.renderBooks()
+    mylibrary.resetForm()
+})
 
 mylibrary.renderBooks()
