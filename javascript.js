@@ -50,7 +50,6 @@ class library
             return
         }
         this.library.splice(index, 1)
-        console.log(index)
         this.renderBooks()
     }
     createBook(bookInfo)
@@ -123,7 +122,6 @@ let newbook = new Book("1984", "George Orwell", 300, true)
 let newbook1 = new Book("The Hitchhiker’s Guide to the Galaxy", "Douglas Adams", 400, true)
 let newbook2 = new Book("Consider Phlebas", "Iain Banks", 250, true)
 
-console.log(newbook2.title)
 mylibrary.addBookToLibrary(newbook)
 mylibrary.addBookToLibrary(newbook1)
 mylibrary.addBookToLibrary(newbook2)
