@@ -1,3 +1,4 @@
+(() => {
 class Book
 {
     constructor(title, author, pageCount, readStatus)
@@ -141,3 +142,4 @@ form.addEventListener("submit", (e) =>
 })
 
 mylibrary.renderBooks()
+})();
